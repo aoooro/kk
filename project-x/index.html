@@ -1,0 +1,1086 @@
+<!DOCTYPE html><html lang="en"><head>
+
+
+<meta charset="UTF-8">
+<meta name="robots" content="noindex, nofollow">
+<title>Krystal Klear · Project X · Marketing Deck</title>
+<style>
+  @font-face {
+    font-family: "Bebas Neue";
+    src: url("fonts/BebasNeue-Regular.ttf") format("truetype");
+    font-weight: 400; font-display: swap;
+  }
+  @font-face {
+    font-family: "Inter Local";
+    src: url("fonts/Inter-Regular.ttf") format("truetype");
+    font-weight: 400; font-display: swap;
+  }
+  @font-face {
+    font-family: "Roboto Mono Local";
+    src: url("fonts/RobotoMono-Regular.ttf") format("truetype");
+    font-weight: 400; font-display: swap;
+  }
+
+  :root {
+    --font-sans: "Inter Local", "Helvetica Neue", Helvetica, Arial, sans-serif;
+    --font-display: "Bebas Neue", "Arial Narrow", sans-serif;
+    --font-mono: "Roboto Mono Local", "SFMono-Regular", Menlo, monospace;
+
+    --mark-size: 15px;
+    --legal-size: 12px;
+
+    --bg:  #000000;
+    --ink: #ffffff;
+    --ink2:#9a9a9a;   /* secondary / eyebrows */
+    --ink3:#cfcfcf;   /* body on grids */
+    --line:#2b2b2b;   /* hairlines */
+  }
+
+  html, body { margin: 0; background: #000; font-family: var(--font-sans); color: var(--ink); }
+
+  deck-stage section {
+    background: var(--bg);
+    color: var(--ink);
+    overflow: hidden;
+    position: relative;
+  }
+
+  /* ---------------- running chrome ---------------- */
+  .ch {
+    position: absolute;
+    font-family: var(--font-mono);
+    font-weight: 400;
+    font-size: var(--mark-size);
+    letter-spacing: 0.08em;
+    line-height: 1;
+    color: var(--ink);
+    text-transform: uppercase;
+    white-space: nowrap;
+  }
+  .ch.brand  { top: 57px;   left: 100px; }
+  .ch.title  { top: 57px;   left: 343px; }
+  .ch.number { top: 1040px; left: 343px; }
+  .ch.legal  {
+    top: 1041px; left: 669px;
+    font-weight: 500;
+    font-size: var(--legal-size);
+    letter-spacing: 0.04em;
+    color: var(--ink2);
+  }
+
+  /* OOO brand mark — bottom-left of every slide */
+  .brand-mark {
+    position: absolute;
+    left: 100px; top: 1030px;
+    height: 30px; width: auto;
+    user-select: none; pointer-events: none;
+  }
+
+  /* ---------------- content frame ---------------- */
+  .frame {
+    position: absolute;
+    left: 220px; top: 232px;
+    width: 1480px; bottom: 96px;
+    display: flex; flex-direction: column;
+  }
+  .frame.center { justify-content: center; top: 96px; bottom: 96px; }
+  .frame.high   { top: 188px; }
+
+  .eyebrow {
+    font-family: var(--font-mono);
+    font-size: 17px; letter-spacing: 0.16em;
+    text-transform: uppercase; color: var(--ink2);
+    margin: 0 0 28px;
+  }
+  .head {
+    font-family: var(--font-display); font-weight: 400;
+    text-transform: uppercase; line-height: 0.9;
+    letter-spacing: 0.006em; font-size: 64px;
+    margin: 0; max-width: 1400px; text-wrap: balance;
+  }
+  .head.lg { font-size: 96px; }
+  .head.sm { font-size: 50px; max-width: 1300px; }
+
+  .lede {
+    font-family: var(--font-sans);
+    font-size: 25px; line-height: 1.46;
+    color: #e9e9e9; max-width: 1000px; margin: 36px 0 0;
+    text-wrap: pretty;
+  }
+  .lede.cols { max-width: none; }
+  .lede p { margin: 0 0 20px; }
+  .lede p:last-child { margin-bottom: 0; }
+  /* thin divider between a one-line sub-headline and the detail body,
+     matching the .arc rule on the Content Transition slide */
+  .lede p.ruled {
+    border-top: 1px solid var(--line);
+    padding-top: 22px; margin-top: 24px;
+  }
+  .lede strong { font-weight: 600; color: #fff; }
+
+  .note {
+    font-family: var(--font-sans); font-style: italic;
+    font-size: 19px; line-height: 1.5; color: var(--ink2);
+    max-width: 1180px; margin: 30px 0 0; text-wrap: pretty;
+  }
+
+  /* ---------------- grids of labelled items ---------------- */
+  .grid { display: grid; gap: 0 56px; margin-top: 44px; }
+  .g2 { grid-template-columns: 1fr 1fr; }
+  .g3 { grid-template-columns: repeat(3, 1fr); }
+  .g4 { grid-template-columns: repeat(4, 1fr); gap: 0 40px; }
+
+  .item { border-top: 1px solid var(--line); padding-top: 22px; }
+  .item .k {
+    font-family: var(--font-mono); font-size: 14px;
+    letter-spacing: 0.12em; color: var(--ink2);
+    text-transform: uppercase; display: block; margin-bottom: 14px;
+  }
+  .item h4 {
+    font-family: var(--font-display); font-weight: 400;
+    text-transform: uppercase; font-size: 38px; line-height: 0.95;
+    letter-spacing: 0.01em; margin: 0 0 16px;
+  }
+  .item h4.two { font-size: 30px; }
+  .item p {
+    font-family: var(--font-sans); font-size: 19px; line-height: 1.42;
+    color: var(--ink3); margin: 0 0 12px;
+  }
+  .item p:last-child { margin-bottom: 0; }
+  .item .meta { font-size: 17px; color: #bdbdbd; margin-top: 12px; }
+  .item .meta .lab {
+    font-family: var(--font-mono); font-size: 12px; letter-spacing: 0.1em;
+    color: var(--ink2); text-transform: uppercase; margin-right: 8px;
+  }
+
+  /* ---------------- bullet list ---------------- */
+  .bullets { list-style: none; padding: 0; margin: 0; }
+  .bullets li {
+    font-family: var(--font-sans); font-size: 21px; line-height: 1.35;
+    color: #e9e9e9; padding: 15px 0 15px 34px;
+    border-top: 1px solid var(--line); position: relative;
+  }
+  .bullets li:before {
+    content: ""; position: absolute; left: 0; top: 26px;
+    width: 16px; height: 1px; background: #fff;
+  }
+  /* keep the leading-dash indent when .bullets sits inside a .duo column
+     (otherwise .duo li padding wins and the dash overlays the text) */
+  .duo .bullets li { padding: 15px 0 15px 34px; }
+
+  /* ---------------- pull quote / strategy line ---------------- */
+  .pull {
+    font-family: var(--font-display); font-weight: 400;
+    text-transform: uppercase; font-size: 44px; line-height: 1.02;
+    letter-spacing: 0.01em; color: #fff; max-width: 1320px;
+    margin: 32px 0 0;
+  }
+  .pull.sm { font-size: 36px; }
+  .attrib {
+    font-family: var(--font-mono); font-size: 15px; letter-spacing: 0.12em;
+    text-transform: uppercase; color: var(--ink2); margin: 18px 0 0;
+    padding-left: 32px;
+  }
+
+  /* ---------------- two-panel lean-in / avoid ---------------- */
+  .duo { display: grid; grid-template-columns: 1fr 1fr; gap: 0 80px; margin-top: 72px; }
+  .duo .col h5 {
+    font-family: var(--font-mono); font-size: 16px; letter-spacing: 0.16em;
+    text-transform: uppercase; color: var(--ink2); margin: 0 0 18px;
+    padding-bottom: 16px; border-bottom: 1px solid var(--line);
+  }
+  .duo ul { list-style: none; margin: 0; padding: 0; }
+  .duo li {
+    font-family: var(--font-sans); font-size: 20px; line-height: 1.32;
+    color: #e6e6e6; padding: 10px 0;
+  }
+
+  /* ---------------- lyric / hook ---------------- */
+  .verse {
+    font-family: var(--font-sans); font-style: italic;
+    font-size: 22px; line-height: 1.55; color: var(--ink2);
+    margin: 28px 0 24px; max-width: 1000px;
+  }
+  .chant {
+    font-family: var(--font-display); font-weight: 400;
+    text-transform: uppercase; font-size: 60px; line-height: 0.98;
+    letter-spacing: 0.01em; color: #fff;
+  }
+
+  /* ---------------- callout box ---------------- */
+  .callout { border: 1px solid var(--line); padding: 28px 34px; margin-top: 30px; }
+  .callout .k {
+    font-family: var(--font-mono); font-size: 14px; letter-spacing: 0.14em;
+    color: #fff; text-transform: uppercase; display: block; margin-bottom: 14px;
+  }
+  .callout p {
+    font-family: var(--font-sans); font-size: 17.5px; line-height: 1.5;
+    color: #c8c8c8; margin: 0; text-wrap: pretty;
+  }
+
+  /* ---------------- timeline ---------------- */
+  .tl { display: grid; grid-template-columns: repeat(5, 1fr); gap: 0 28px; margin-top: 46px; }
+  .tl .ph { border-top: 1px solid var(--line); padding-top: 20px; }
+  .tl .ph .when {
+    font-family: var(--font-mono); font-size: 13px; letter-spacing: 0.1em;
+    text-transform: uppercase; color: var(--ink2); display: block; margin-bottom: 16px;
+  }
+  .tl .ph h4 {
+    font-family: var(--font-display); font-weight: 400; text-transform: uppercase;
+    font-size: 30px; line-height: 0.96; letter-spacing: 0.01em; margin: 0 0 18px;
+  }
+  .tl .ph ul { list-style: none; margin: 0; padding: 0; }
+  .tl .ph li {
+    font-family: var(--font-mono); font-size: 13px; line-height: 1.5;
+    letter-spacing: 0.01em; color: #b9b9b9; margin-bottom: 9px;
+  }
+  .tl .ph li.mark { color: #fff; }
+
+  /* ---------------- concept / activation split ---------------- */
+  /* Balanced margins (220 left / 220 right) so the text+media pair sits
+     centred on the slide rather than pushed right by the 343px indent. */
+  .frame.narrow { width: 760px; left: 220px; }
+  .concept-img {
+    position: absolute;
+    top: 188px; bottom: 96px; left: 1030px; right: 220px;
+    background: #161616; overflow: hidden;
+  }
+  .concept-img image-slot,
+  .concept-img video { width: 100%; height: 100%; }
+  .concept-img video { object-fit: cover; display: block; }
+  /* media column with caption underneath (right side of split slides) */
+  .media-col {
+    position: absolute; top: 188px; bottom: 96px; left: 1030px; right: 220px;
+    display: flex; flex-direction: column;
+  }
+  .media-col .media { flex: 1; min-height: 0; background: #161616; overflow: hidden; }
+  .media-col .media img { width: 100%; height: 100%; object-fit: cover; display: block; }
+  .media-col .cap {
+    font-family: var(--font-mono); font-size: 14px; letter-spacing: 0.1em;
+    text-transform: uppercase; color: var(--ink2); margin: 16px 0 0;
+  }
+  /* two portrait videos side by side in the right column */
+  .duo-col {
+    position: absolute; top: 188px; bottom: 96px; left: 1000px; right: 180px;
+    display: flex; gap: 44px; justify-content: center; align-items: stretch;
+  }
+  .duo-col video, .duo-col img {
+    height: 100%; width: auto; max-width: calc(50% - 22px); object-fit: contain;
+    background: transparent; display: block;
+  }
+  /* two-column visual-language formats (image over caption) */
+  .vl-img { width: 100%; height: 380px; background: #161616; overflow: hidden; margin-bottom: 22px; }
+  .vl-img image-slot { width: 100%; height: 100%; }
+  /* 3-up portrait video row (DJ cont.) */
+  .phone-row {
+    display: flex; gap: 150px; margin-top: 44px;
+    justify-content: center; align-items: stretch;
+    flex: 1; min-height: 0;
+  }
+  .phone-row video, .phone-row img {
+    height: 100%; width: auto;
+    object-fit: contain; background: #161616; display: block;
+  }
+  /* vertical split-frame demo (single composited clip) */
+  .split-frame {
+    position: absolute;
+    top: 188px; bottom: 96px; left: 1030px; right: 220px;
+    display: flex; flex-direction: column; gap: 6px;
+    align-items: center; justify-content: center;
+  }
+  .split-frame video, .split-frame img {
+    height: 100%; width: auto; object-fit: contain;
+    background: #161616; display: block;
+  }
+  .split-frame .half { position: relative; flex: 1; background: #161616; overflow: hidden; }
+  .split-frame .half image-slot { width: 100%; height: 100%; }
+  .split-frame .half .tag {
+    position: absolute; left: 16px; top: 14px; z-index: 2;
+    font-family: var(--font-mono); font-size: 13px; letter-spacing: 0.12em;
+    text-transform: uppercase; color: #fff; mix-blend-mode: difference;
+  }
+  .ref {
+    font-family: var(--font-mono); font-size: 14px; letter-spacing: 0.1em;
+    text-transform: uppercase; color: var(--ink2); margin: 30px 0 0;
+    padding-top: 18px; border-top: 1px solid var(--line);
+  }
+  .arc {
+    font-family: var(--font-mono); font-size: 16px; letter-spacing: 0.14em;
+    text-transform: uppercase; color: #fff; margin: 38px 0 0;
+    padding-top: 22px; border-top: 1px solid var(--line);
+  }
+
+  /* ---------------- big centered statement ---------------- */
+  .statement-wrap {
+    position: absolute; inset: 0; display: flex;
+    align-items: center; justify-content: center; padding: 120px 160px;
+  }
+  .statement {
+    font-family: var(--font-display); font-weight: 400; text-transform: uppercase;
+    font-size: 82px; line-height: 1.04; letter-spacing: 0.012em;
+    color: #fff; text-align: center; text-wrap: balance; max-width: 1520px; margin: 0;
+  }
+
+  /* ---------------- cover ---------------- */
+  .cover {
+    position: absolute; inset: 0; display: flex; flex-direction: column;
+    align-items: center; justify-content: center; text-align: center;
+    padding: 0 120px;
+  }
+  .cover .artist-pill {
+    display: inline-block;
+    font-family: var(--font-display); font-weight: 400; text-transform: uppercase;
+    font-size: 76px; line-height: 1; letter-spacing: 0.03em; color: #fff;
+    margin: 0 0 18px;
+  }
+  .cover .title {
+    font-family: var(--font-display); font-weight: 400; text-transform: uppercase;
+    font-size: 280px; line-height: 0.8; letter-spacing: 0.01em; margin: 0; color: #fff;
+  }
+  .cover .sub {
+    font-family: var(--font-mono); font-size: 22px; letter-spacing: 0.2em;
+    text-transform: uppercase; color: var(--ink2); margin: 40px 0 0;
+  }
+
+  /* ---------------- END back-cover ---------------- */
+  .endmark { position: absolute; inset: 0; display: flex; flex-direction: column;
+    align-items: center; justify-content: center; }
+  .endmark .vignette {
+    position: absolute; inset: 0;
+    background: radial-gradient(ellipse 55% 55% at 50% 50%, #2e2e2e 0%, #000000 80%);
+  }
+  .endmark .end-text {
+    position: relative; font-family: var(--font-display); font-weight: 400;
+    font-size: 240px; letter-spacing: 0.02em; color: #fff;
+    text-transform: uppercase; line-height: 0.9;
+  }
+  .endmark .end-credit {
+    position: relative; font-family: var(--font-mono); font-size: 18px;
+    letter-spacing: 0.16em; text-transform: uppercase; color: var(--ink2);
+    margin-top: 26px; text-align: center;
+  }
+
+  /* ==================================================================
+     PRINT / PDF EXPORT  (handoff §6)
+     deck-stage.js paginates one slide per sheet at 1920×1080, so all
+     absolutely-positioned content prints in place. Frames are absolute
+     and unaffected by the section flex below; grids just guard splits.
+     ================================================================== */
+  @media print {
+    deck-stage section {
+      display: flex !important; flex-direction: column;
+      justify-content: center; align-items: stretch;
+    }
+    .grid, .duo, .tl, .item, .callout, .bullets li, .tl .ph { break-inside: avoid; }
+    deck-stage section, .endmark .vignette {
+      -webkit-print-color-adjust: exact; print-color-adjust: exact;
+    }
+  }
+</style>
+</head>
+<body style="">
+
+<template id="__bundler_thumbnail">
+  <svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+    <rect width="100" height="100" fill="#0a0a0a"/>
+    <text x="50" y="58" font-family="Arial Narrow, sans-serif" font-weight="700" font-size="30" fill="#ffffff" text-anchor="middle" letter-spacing="1">PX</text>
+    <text x="50" y="74" font-family="monospace" font-size="6" fill="#9a9a9a" text-anchor="middle" letter-spacing="2">KRYSTAL KLEAR</text>
+  </svg>
+</template>
+
+<deck-stage no-rail width="1920" height="1080" style="--deck-rail-w: 188px;" data-om-id="430ee33f:4">
+
+  <!-- ============ 01 — COVER ============ -->
+  <section data-label="01 Cover" data-om-id="430ee33f:5" data-deck-slide="0" data-screen-label="01 01 Cover" data-om-validate="no_overflowing_text,no_overlapping_text,slide_sized_text">
+    <div class="cover" data-om-id="430ee33f:6">
+      <p class="artist-pill" data-om-id="430ee33f:7">Krystal Klear feat. Sofie Royer</p>
+      <h1 class="title" data-om-id="430ee33f:8">Project&nbsp;X</h1>
+      <p class="sub" data-om-id="430ee33f:9">New Single · 17 July 2026</p>
+    </div>
+    <span class="ch brand">Krystal Klear</span>
+    <span class="ch title">Project X</span>
+    <img class="brand-mark" src="ooo-logo.png" alt="OOO" data-om-id="430ee33f:10">
+    <span class="ch number" data-om-id="430ee33f:11">01</span>
+  </section>
+
+  <!-- ============ 02 — THE BLUEPRINT ============ -->
+  <section data-label="02 Blueprint" data-om-id="430ee33f:12" data-deck-slide="1" data-screen-label="02 02 Blueprint" data-om-validate="no_overflowing_text,no_overlapping_text,slide_sized_text">
+    <div class="statement-wrap">
+      <p class="statement" data-om-id="430ee33f:17">This deck is a marketing blueprint for Krystal Klear's new single, Project&nbsp;X (feat. Sofie Royer). It establishes the story, language and ideas to bring the record to fans and new audiences. A living document, it will evolve as we progress, test, and learn what is working.</p>
+    </div>
+    <img class="brand-mark" src="ooo-logo.png" alt="OOO" data-om-id="430ee33f:19">
+    <span class="ch brand" data-om-id="430ee33f:20">Krystal Klear</span>
+    <span class="ch title" data-om-id="430ee33f:21">Project X</span>
+    <span class="ch number" data-om-id="430ee33f:22">02</span>
+    <span class="ch legal" data-om-id="430ee33f:23">ALL CONTENTS CONTAINED HEREIN ARE COPYRIGHT TO OUT OF OFFICE © 2026</span>
+  </section>
+
+  <!-- ============ 03 — THE TRACK ============ -->
+  <section data-label="03 The Brief" data-om-id="608397f1:43" data-deck-slide="2" data-screen-label="03 03 The Brief" data-om-validate="no_overflowing_text,no_overlapping_text,slide_sized_text">
+    <div class="frame high" data-om-id="608397f1:44">
+      <p class="eyebrow" data-om-id="608397f1:45">03 · The Brief</p>
+      <h2 class="head lg" data-om-id="430ee33f:95">Maximise The Moment</h2>
+      <div class="grid g2" style="margin-top:42px; align-items:start;" data-om-id="430ee33f:96">
+        <div class="lede" style="margin-top:0;" data-om-id="430ee33f:97">
+          <p data-om-id="430ee33f:98">Make Project X the biggest, most fun thing Krystal Klear has ever put out, and give fans the song they will want playing all summer.</p>
+          <p data-om-id="430ee33f:99" data-cc-id="cc-4" style="">The measure of success is a clear, undeniable step-up in KK's performance as an artist. We hold it lightly, with no chart targets and no obligation to tie it to the album campaign.</p>
+        </div>
+        <div data-om-id="430ee33f:100">
+          <p class="eyebrow" style="margin-bottom:18px;" data-om-id="430ee33f:101">Success looks like</p>
+          <ul class="bullets" data-om-id="430ee33f:102">
+            <li data-om-id="430ee33f:103">Biggest first-week of any KK release to date</li>
+            <li style="" data-om-id="430ee33f:104" data-cc-id="cc-2">Monthly listeners pushed above the current ~115K trajectory</li>
+            <li data-om-id="430ee33f:105">Real creation volume on TikTok and Reels, from a near-standing start</li>
+            <li style="" data-om-id="430ee33f:106" data-cc-id="cc-3">Ubiquity in DJ sets</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+    <img class="brand-mark" src="ooo-logo.png" alt="OOO" data-om-id="430ee33f:107">
+    <span class="ch brand" data-om-id="430ee33f:108">Krystal Klear</span>
+    <span class="ch title" data-om-id="430ee33f:109">Project X</span>
+    <span class="ch number" data-om-id="430ee33f:110">03</span>
+    <span class="ch legal" data-om-id="430ee33f:111">ALL CONTENTS CONTAINED HEREIN ARE COPYRIGHT TO OUT OF OFFICE © 2026</span>
+  </section><section data-label="04 The Track" data-om-id="430ee33f:24" data-deck-slide="3" data-screen-label="04 04 The Track" data-om-validate="no_overflowing_text,no_overlapping_text,slide_sized_text">
+    <div class="frame high" data-om-id="430ee33f:25">
+      <p class="eyebrow" data-om-id="430ee33f:26">04 · The Track</p>
+      <div class="grid g2" style="margin-top:14px; column-gap:90px; align-items:start;" data-om-id="608397f1:27">
+        <div data-om-id="608397f1:28">
+          <h2 class="head" style="font-size:46px; min-height:90px; margin:0;" data-om-id="608397f1:29">Don't Overthink It</h2>
+          <div class="lede" style="margin-top:24px; font-size:22px;" data-om-id="608397f1:30">
+            <p data-om-id="608397f1:31">Project X is an unapologetic summer banger. It is maximalist, a little absurd, and pure fun – and that is exactly the point.</p>
+            <p data-om-id="608397f1:32">Krystal Klear has spent fifteen years earning his credibility. This is the sound of him cutting loose and enjoying it.</p>
+          </div>
+        </div>
+        <div data-om-id="608397f1:33">
+          <h2 class="head" style="font-size:46px; min-height:90px; margin:0;" data-om-id="608397f1:34">A World Between Brat And The Best Indie Disco</h2>
+          <div class="lede" style="margin-top:24px; font-size:22px;" data-om-id="608397f1:35">
+            <p data-om-id="608397f1:36">Read into it as much or as little as you like. If you want the deeper version: Project X lives in the space between Charli xcx's BRAT era and the golden run of indie disco, roughly 2004–2012. DFA-flavoured, New York-coded, bombastic. A credible underground producer making a record built for maximum joy.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+    <img class="brand-mark" src="ooo-logo.png" alt="OOO" data-om-id="430ee33f:33">
+    <span class="ch brand" data-om-id="430ee33f:34">Krystal Klear</span>
+    <span class="ch title" data-om-id="430ee33f:35">Project X</span>
+    <span class="ch number" data-om-id="430ee33f:36">04</span>
+    <span class="ch legal" data-om-id="430ee33f:37">ALL CONTENTS CONTAINED HEREIN ARE COPYRIGHT TO OUT OF OFFICE © 2026</span>
+  </section>
+
+  <!-- ============ 04 — THE BRIEF ============ -->
+  <section data-label="05 The Hook" data-om-id="430ee33f:51" data-deck-slide="4" data-screen-label="05 05 The Hook" data-om-validate="no_overflowing_text,no_overlapping_text,slide_sized_text">
+    <div class="frame high" data-om-id="430ee33f:52">
+      <p class="eyebrow" data-om-id="430ee33f:53">05 · The Hook</p>
+      <h2 class="head lg" data-om-id="430ee33f:54">All Night Long</h2>
+      <div class="lede" data-om-id="430ee33f:55">
+        <p data-om-id="430ee33f:56" data-cc-id="cc-5" style="">The lyric <u data-om-id="e76e94b9:69">is</u> the campaign. Simple, repetitive, infectious – like every great pop song and every great dance record. This is the filter through which we view our marketing – everything we make points back to it.</p>
+      </div>
+      <p class="chant" data-om-id="608397f1:73">
+        I want to dance, dance, all night long,<br data-om-id="608397f1:74">
+        DJ keep playing my song,<br data-om-id="608397f1:75">
+        All night long, all night long
+      </p>
+    </div>
+    <img class="brand-mark" src="ooo-logo.png" alt="OOO" data-om-id="430ee33f:64">
+    <span class="ch brand" data-om-id="430ee33f:65">Krystal Klear</span>
+    <span class="ch title" data-om-id="430ee33f:66">Project X</span>
+    <span class="ch number" data-om-id="430ee33f:67">05</span>
+    <span class="ch legal" data-om-id="430ee33f:68">ALL CONTENTS CONTAINED HEREIN ARE COPYRIGHT TO OUT OF OFFICE © 2026</span>
+  </section>
+
+  <!-- ============ 06 — CONTEXT ============ -->
+  
+
+  <!-- ============ 07 — THE BRIEF ============ -->
+  
+
+  <!-- ============ 08 — THE STRATEGY ============ -->
+  <section data-label="07 The Strategy" data-om-id="430ee33f:112" data-deck-slide="6" data-screen-label="07 07 The Strategy" data-om-validate="no_overflowing_text,no_overlapping_text,slide_sized_text">
+    <div class="frame high" data-om-id="430ee33f:113">
+      <p class="eyebrow" data-om-id="430ee33f:114">07 · The Strategy</p>
+      <h2 class="head sm" data-om-id="430ee33f:115">Hand The Fans Their Song Of The Summer</h2>
+      <p class="pull sm" style="margin-top:26px;" data-om-id="430ee33f:116">We give fans an irresistible summer anthem and make it effortless for them to make it their own – by dancing to it, filming it, requesting it, and singing the chorus back.</p>
+      <div class="duo" data-om-id="430ee33f:117">
+        <div class="col" data-om-id="430ee33f:118">
+          <h5 data-om-id="430ee33f:119">Lean In ✅</h5>
+          <ul data-om-id="430ee33f:120">
+            <li data-om-id="430ee33f:121">Fun, maximalist, confident energy</li>
+            <li data-om-id="430ee33f:122">The hook, repeated everywhere</li>
+            <li data-om-id="430ee33f:123">The day-to-night transition (hotel, beach, club)</li>
+            <li data-om-id="430ee33f:124">Club-first credibility, letting the DJs build it</li>
+            <li data-om-id="430ee33f:125">Phone-first, spontaneous, high-volume content</li>
+            <li data-om-id="430ee33f:126">Handing fans the easiest ways to take part</li>
+          </ul>
+        </div>
+        <div class="col" data-om-id="430ee33f:127">
+          <h5 data-om-id="430ee33f:128">Avoid ❌</h5>
+          <ul data-om-id="430ee33f:129">
+            <li data-om-id="430ee33f:130">Overthinking or over-polishing it</li>
+            <li data-om-id="430ee33f:131">"KK goes pop" framing, or anything that reads as a cynical pivot</li>
+            <li data-om-id="430ee33f:132">Positioning it as the album's prologue</li>
+            <li data-om-id="430ee33f:133">Being too precious</li>
+            <li data-om-id="430ee33f:134">Volume for the sake of volume, with no hook behind it</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+    <img class="brand-mark" src="ooo-logo.png" alt="OOO" data-om-id="430ee33f:135">
+    <span class="ch brand" data-om-id="430ee33f:136">Krystal Klear</span>
+    <span class="ch title" data-om-id="430ee33f:137">Project X</span>
+    <span class="ch number" data-om-id="430ee33f:138">07</span>
+    <span class="ch legal" data-om-id="430ee33f:139">ALL CONTENTS CONTAINED HEREIN ARE COPYRIGHT TO OUT OF OFFICE © 2026</span>
+  </section>
+
+  <!-- ============ 09 — THE CAST ============ -->
+  
+
+  <!-- ============ 10 — AUDIENCE ============ -->
+  <section data-label="09 Audience" data-om-id="430ee33f:163" data-deck-slide="8" data-screen-label="09 09 Audience" data-om-validate="no_overflowing_text,no_overlapping_text,slide_sized_text">
+    <div class="frame high" data-om-id="430ee33f:164">
+      <p class="eyebrow" data-om-id="430ee33f:165">09 · Audience</p>
+      <h2 class="head lg" data-om-id="430ee33f:166">Who This Is For</h2>
+      <div class="grid g3" style="margin-top:44px;" data-om-id="430ee33f:167">
+        <div class="item" data-om-id="430ee33f:168">
+          <span class="k" data-om-id="430ee33f:169">01 · The Faithful (Day Ones)</span>
+          <p data-om-id="430ee33f:170">KK's Running Back, Robert Johnson and Skream crowd.</p>
+          <p class="meta" data-om-id="430ee33f:171"><span class="lab" data-om-id="430ee33f:172">Job</span>Bring them along and let them enjoy it without guilt – a guilty pleasure at most.</p>
+          <p class="meta" data-om-id="430ee33f:173"><span class="lab" data-om-id="430ee33f:174">Proof</span>Club-first rollout, the co-signs.</p>
+        </div>
+        <div class="item" data-om-id="430ee33f:175">
+          <span class="k" data-om-id="430ee33f:176">02 · The Crossover (New)</span>
+          <p data-om-id="430ee33f:177">BRAT-era pop kids, indie-sleaze revivalists, the TikTok summer-dance audience, Sofie's following.</p>
+          <p class="meta" data-om-id="430ee33f:178"><span class="lab" data-om-id="430ee33f:179">Job</span>Give them the easiest possible way in.</p>
+          <p class="meta" data-om-id="430ee33f:180"><span class="lab" data-om-id="430ee33f:181">Proof</span>The hook, the trend, "this is your song this summer."</p>
+        </div>
+        <div class="item" data-om-id="430ee33f:182">
+          <span class="k" data-om-id="430ee33f:183">03 · The DJ Community</span>
+          <p data-om-id="430ee33f:184">The amplification and credibility engine.</p>
+          <p class="meta" data-om-id="430ee33f:185"><span class="lab" data-om-id="430ee33f:186">Job</span>Arm them early and fully.</p>
+          <p class="meta" data-om-id="430ee33f:187"><span class="lab" data-om-id="430ee33f:188">Proof</span>Versions, edits, remixes, pre-release servicing.</p>
+        </div>
+      </div>
+    </div>
+    <img class="brand-mark" src="ooo-logo.png" alt="OOO" data-om-id="430ee33f:189">
+    <span class="ch brand" data-om-id="430ee33f:190">Krystal Klear</span>
+    <span class="ch title" data-om-id="430ee33f:191">Project X</span>
+    <span class="ch number" data-om-id="430ee33f:192">09</span>
+    <span class="ch legal" data-om-id="430ee33f:193">ALL CONTENTS CONTAINED HEREIN ARE COPYRIGHT TO OUT OF OFFICE © 2026</span>
+  </section>
+
+  <!-- ============ 11 — MESSAGING PILLARS ============ -->
+  
+
+  <!-- ============ 12 — CREATIVE TERRITORIES ============ -->
+  <section data-label="11 Creative Territories" data-om-id="430ee33f:220" data-deck-slide="10" data-screen-label="11 11 Creative Territories" data-om-validate="no_overflowing_text,no_overlapping_text,slide_sized_text">
+    <div class="frame high" data-om-id="430ee33f:221">
+      <p class="eyebrow" data-om-id="430ee33f:222">11 · Creative Territories</p>
+      <h2 class="head sm" data-om-id="430ee33f:223">The World Of Project X</h2>
+      <div class="grid g3" style="margin-top:40px;" data-om-id="430ee33f:224">
+        <div class="item" data-om-id="430ee33f:229">
+          <span class="k" data-om-id="430ee33f:230">Territory 01</span>
+          <h4 class="two" data-om-id="430ee33f:231">The Hook On Loop</h4>
+          <p data-om-id="430ee33f:232">The chorus as a hypnotic, repeatable motif across visualiser, cutdowns, captions and metadata.</p>
+        </div>
+        <div class="item" data-om-id="430ee33f:225">
+          <span class="k" data-om-id="430ee33f:226">Territory 02</span>
+          <h4 class="two" data-om-id="430ee33f:227">Day To Night</h4>
+          <p data-om-id="430ee33f:228">The lyric's own arc. Beach and pool by day, club and dancefloor by night. Sun, water, sweat. Our core visual story, and the spine of the content formats.</p>
+        </div>
+        <div class="item" data-om-id="430ee33f:233">
+          <span class="k" data-om-id="430ee33f:234">Territory 03</span>
+          <h4 class="two" data-om-id="430ee33f:235">Project X-tra (The Party)</h4>
+          <p data-om-id="430ee33f:236">The name is a gift. Chaotic summer-party energy, the house party that spills into a rave. Branded and serialised.</p>
+        </div>
+      </div>
+      <div class="callout" data-om-id="430ee33f:237">
+        <span class="k" data-om-id="430ee33f:238">Visual Language</span>
+        <p data-om-id="430ee33f:239">Maximalist and saturated. It borrows the boldness and energy of BRAT without emulating it or trying to extend that era, and sits it next to the grain of 2004–2012 indie disco.</p>
+      </div>
+    </div>
+    <img class="brand-mark" src="ooo-logo.png" alt="OOO" data-om-id="430ee33f:240">
+    <span class="ch brand" data-om-id="430ee33f:241">Krystal Klear</span>
+    <span class="ch title" data-om-id="430ee33f:242">Project X</span>
+    <span class="ch number" data-om-id="430ee33f:243">11</span>
+    <span class="ch legal" data-om-id="430ee33f:244">ALL CONTENTS CONTAINED HEREIN ARE COPYRIGHT TO OUT OF OFFICE © 2026</span>
+  </section>
+
+  <!-- ============ 13 — CONTENT SYSTEM ============ -->
+  <section data-label="12 Content System" data-om-id="430ee33f:245" data-deck-slide="11" data-screen-label="12 12 Content System" data-om-validate="no_overflowing_text,no_overlapping_text,slide_sized_text">
+    <div class="frame high" data-om-id="430ee33f:246">
+      <p class="eyebrow" data-om-id="430ee33f:247">12 · Content System</p>
+      <h2 class="head lg" data-om-id="430ee33f:248">Repeatable Formats</h2>
+      <div class="duo" style="margin-top:42px;" data-om-id="430ee33f:249">
+        <div class="col" data-om-id="430ee33f:250">
+          <h5 data-om-id="430ee33f:251">Hero Formats</h5>
+          <div class="item" style="border:0; padding:0; margin-bottom:22px;" data-om-id="430ee33f:252">
+            <h4 class="two" data-om-id="430ee33f:253">Lyric Visualiser &amp; Cutdowns</h4>
+            <p data-om-id="430ee33f:254">The hook, looped, instantly recognisable. The asset everything else hangs off, built for the Shazam play and for socials.</p>
+          </div>
+          <div class="item" style="border:0; padding:0;" data-om-id="430ee33f:255">
+            <h4 class="two" data-om-id="430ee33f:256">"Soundtrack Your Summer"</h4>
+            <p data-om-id="430ee33f:257">The creator format, built as a transition video: hotel, beach, club.</p>
+          </div>
+        </div>
+        <div class="col" data-om-id="430ee33f:258">
+          <h5 data-om-id="430ee33f:259">Support Formats</h5>
+          <div class="item" style="border:0; padding:0; margin-bottom:22px;">
+            <h4 class="two">DJ &amp; Club Clips</h4>
+            <p>The record going off in real rooms.</p>
+          </div>
+          <div class="item" style="border:0; padding:0;">
+            <h4 class="two">Carousel &amp; Waveform Teasers</h4>
+            <p>Simple, fun lyric teasers on IG.</p>
+          </div>
+        </div>
+      </div>
+      <p class="note" data-om-id="430ee33f:269">Cadence: phone-first, high-volume, cheap. Consistency over production value.</p>
+    </div>
+    <img class="brand-mark" src="ooo-logo.png" alt="OOO" data-om-id="430ee33f:270">
+    <span class="ch brand" data-om-id="430ee33f:271">Krystal Klear</span>
+    <span class="ch title" data-om-id="430ee33f:272">Project X</span>
+    <span class="ch number" data-om-id="430ee33f:273">12</span>
+    <span class="ch legal" data-om-id="430ee33f:274">ALL CONTENTS CONTAINED HEREIN ARE COPYRIGHT TO OUT OF OFFICE © 2026</span>
+  </section>
+
+  <!-- ============ 13 — VISUAL LANGUAGE ============ -->
+  <section data-label="13 Visual Language" data-screen-label="13 13 Visual Language" data-om-id="e76e94b9:268" data-om-validate="no_overflowing_text,no_overlapping_text,slide_sized_text" data-deck-slide="12">
+    <div class="frame high" data-om-id="e76e94b9:269">
+      <p class="eyebrow" data-om-id="e76e94b9:270">13 · Visual Language</p>
+      <h2 class="head lg" data-om-id="e76e94b9:271">The Lyrics Are The Look</h2>
+      <div class="lede" style="max-width:1240px;" data-om-id="e76e94b9:272">
+        <p data-om-id="e76e94b9:273">The lyrics are the central element of the campaign – simple, repeatable, infectious. The visuals match that philosophy: a bold, ownable language that resurfaces with consistency to breed familiarity.</p>
+      </div>
+      <div class="grid g2" style="margin-top:34px; column-gap:80px;" data-om-id="e76e94b9:274">
+        <div class="item" style="border:0; padding:0;" data-om-id="e76e94b9:275">
+          <div class="vl-img" data-om-id="e76e94b9:276"><img src="kk-t-shirt.jpg" alt="Fan wearing a lyric T-shirt" style="width:100%; height:100%; object-fit:cover; object-position:center 100%;" data-om-id="e76e94b9:277"></div>
+          <span class="k" data-om-id="e76e94b9:278">01 · Format</span>
+          <h4 class="two" data-om-id="e76e94b9:279">Lyric T-shirts</h4>
+          <p data-om-id="e76e94b9:280">Photos of fans each wearing a tee with one line of the lyric printed across the chest. Used sequentially in lyric visualisers and Instagram carousels.</p>
+        </div>
+        <div class="item" style="border:0; padding:0;" data-om-id="e76e94b9:281">
+          <div class="vl-img" data-om-id="e76e94b9:282"><img src="kk-kinetic-typography.gif" alt="Kinetic typography" style="width:100%; height:100%; object-fit:cover; object-position:center;" data-om-id="e76e94b9:283"></div>
+          <span class="k" data-om-id="e76e94b9:284">02 · Format</span>
+          <h4 class="two" data-om-id="e76e94b9:285">Kinetic Typography</h4>
+          <p data-om-id="e76e94b9:286">A playful, bold treatment of the lyrics in motion. Opportunity to adopt the pink-and-blue colour scheme, accentuated with black-and-white text.</p>
+        </div>
+      </div>
+    </div>
+    <img class="brand-mark" src="ooo-logo.png" alt="OOO" data-om-id="e76e94b9:287">
+    <span class="ch brand" data-om-id="e76e94b9:288">Krystal Klear</span>
+    <span class="ch title" data-om-id="e76e94b9:289">Project X</span>
+    <span class="ch number" data-om-id="e76e94b9:290">13</span>
+    <span class="ch legal" data-om-id="e76e94b9:291">ALL CONTENTS CONTAINED HEREIN ARE COPYRIGHT TO OUT OF OFFICE © 2026</span>
+  </section>
+
+  <!-- ============ LYRIC T-SHIRTS ============ -->
+  <section data-label="14 Lyric T-Shirts" data-screen-label="14 14 Lyric T-Shirts">
+    <div class="frame high narrow">
+      <p class="eyebrow">14 · Visual Language</p>
+      <h2 class="head">Lyric T-Shirts</h2>
+      <div class="lede">
+        <p>Each fan wears a t-shirt representing a different lyric. Cycled sequentially to produce lyric-visualiser content. The people are as much the centre of the story as the lyrics.</p>
+        <p>Can be used as a full-length visualiser as well as cutdowns on socials. Each fan who agrees to be photographed can later share their photo on their own socials, creating a network effect.</p>
+      </div>
+    </div>
+    <div class="media-col">
+      <div class="media"><img src="kk-marlon-tshirt.gif" alt="Lyric t-shirt visualiser" /></div>
+      <p class="cap">Ref. Marlon Hoffstadt 'Supersonic' visualiser</p>
+    </div>
+    <img class="brand-mark" src="ooo-logo.png" alt="OOO" />
+    <span class="ch brand">Krystal Klear</span>
+    <span class="ch title">Project X</span>
+    <span class="ch number">14</span>
+    <span class="ch legal">ALL CONTENTS CONTAINED HEREIN ARE COPYRIGHT TO OUT OF OFFICE © 2026</span>
+  </section>
+
+  <!-- ============ LYRIC T-SHIRTS CONTENT ============ -->
+  <section data-label="15 Lyric T-Shirts Content" data-screen-label="15 15 Lyric T-Shirts Content">
+    <div class="frame high narrow">
+      <p class="eyebrow">15 · Visual Language</p>
+      <h2 class="head">Lyric T-Shirts Content</h2>
+      <div class="lede">
+        <p>Instagram carousel – hold the dots and slide; the carousel cycles through the t-shirts to spell out the song's lyrics.</p>
+      </div>
+    </div>
+    <div class="duo-col">
+      <img src="kk-instag-scroll-1.gif" alt="Instagram carousel scroll 1" />
+      <img src="kk-instag-scroll-2.gif" alt="Instagram carousel scroll 2" />
+    </div>
+    <img class="brand-mark" src="ooo-logo.png" alt="OOO" />
+    <span class="ch brand">Krystal Klear</span>
+    <span class="ch title">Project X</span>
+    <span class="ch number">15</span>
+    <span class="ch legal">ALL CONTENTS CONTAINED HEREIN ARE COPYRIGHT TO OUT OF OFFICE © 2026</span>
+  </section>
+
+  <!-- ============ KINETIC TYPOGRAPHY VISUALS ============ -->
+  <section data-label="16 Kinetic Typography Visuals" data-screen-label="16 16 Kinetic Typography Visuals">
+    <div style="position:absolute; inset:0; display:flex; flex-direction:column; padding:118px 160px 104px; box-sizing:border-box;">
+      <div style="text-align:center;">
+        <p class="eyebrow" style="margin:0 0 18px;">16 · Visual Language</p>
+        <h2 class="head" style="text-align:center; max-width:none; margin:0;">Kinetic Typography Visuals</h2>
+      </div>
+      <div style="flex:1; min-height:0; display:flex; flex-wrap:wrap; gap:40px; justify-content:center; align-content:center; margin-top:48px;">
+        <img src="kk-kinetic-1.gif" alt="Kinetic typography 1" style="width:596px; height:335px; object-fit:cover; background:#161616; display:block;" />
+        <img src="kk-kinetic-2.gif" alt="Kinetic typography 2" style="width:596px; height:335px; object-fit:cover; background:#161616; display:block;" />
+        <img src="kk-kinetic-3.gif" alt="Kinetic typography 3" style="width:596px; height:335px; object-fit:cover; background:#161616; display:block;" />
+        <img src="kk-kinetic-4.gif" alt="Kinetic typography 4" style="width:596px; height:335px; object-fit:cover; background:#161616; display:block;" />
+      </div>
+    </div>
+    <img class="brand-mark" src="ooo-logo.png" alt="OOO" />
+    <span class="ch brand">Krystal Klear</span>
+    <span class="ch title">Project X</span>
+    <span class="ch number">16</span>
+    <span class="ch legal">ALL CONTENTS CONTAINED HEREIN ARE COPYRIGHT TO OUT OF OFFICE © 2026</span>
+  </section>
+
+  <!-- ============ 14 — CHANNEL APPROACH ============ -->
+  <section data-label="14 Channel Approach" data-om-id="430ee33f:275" data-deck-slide="13" data-screen-label="14 14 Channel Approach" data-om-validate="no_overflowing_text,no_overlapping_text,slide_sized_text">
+    <div class="frame high" data-om-id="430ee33f:276" data-cc-id="cc-4">
+      <p class="eyebrow" data-om-id="430ee33f:277">14 · Channel Approach</p>
+      <h2 class="head lg" data-om-id="430ee33f:278">Channels</h2>
+      <div class="grid g3" style="margin-top:42px; row-gap:30px;" data-om-id="430ee33f:279" data-cc-id="cc-8">
+        <div class="item" data-om-id="430ee33f:280">
+          <span class="k" data-om-id="430ee33f:281">The Foundation</span>
+          <h4 class="two" data-om-id="430ee33f:282">Club</h4>
+          <p data-om-id="430ee33f:283" data-cc-id="cc-6" style="">CANVAS servicing to key DJs, with Declan servicing his inner circle first.</p>
+        </div>
+        <div class="item" data-om-id="430ee33f:284">
+          <span class="k" data-om-id="430ee33f:285">Broadcast</span>
+          <h4 class="two" data-om-id="430ee33f:286">Radio</h4>
+          <p data-om-id="430ee33f:287" data-cc-id="cc-7" style="">TBC radio servicing with CANVAS – targets to include Danny Howard, Charlie Hedges, Sarah Story, Dance Anthems, Capital Dance and Kiss Xtra.</p>
+        </div>
+        <div class="item" data-om-id="430ee33f:288">
+          <span class="k" data-om-id="430ee33f:289">Streaming</span>
+          <h4 class="two" data-om-id="430ee33f:290">DSP</h4>
+          <p data-om-id="430ee33f:291" data-cc-id="cc-2" style="">Waiting to confirm pre-delivery to Shazam with Cobrand so the ID lands cleanly. Consider independent streaming plugger pending budget.</p>
+        </div>
+        <div class="item" data-om-id="430ee33f:292">
+          <span class="k" data-om-id="430ee33f:293">The Trend Engine</span>
+          <h4 class="two" data-om-id="430ee33f:294">Social / Creator</h4>
+          <p data-om-id="430ee33f:295" data-cc-id="cc-5" style="">Celebrity seed into micro-creator volume, lyric-led.</p>
+        </div>
+        <div class="item" data-om-id="430ee33f:296">
+          <span class="k" data-om-id="430ee33f:297">Always On</span>
+          <h4 class="two" data-om-id="430ee33f:298">Owned</h4>
+          <p data-om-id="430ee33f:299" data-cc-id="cc-3" style="">Instagram primary, YouTube for visualiser and audio. Attempt more regular posting on TikTok.</p>
+        </div>
+      </div>
+    </div>
+    <img class="brand-mark" src="ooo-logo.png" alt="OOO" data-om-id="430ee33f:300">
+    <span class="ch brand" data-om-id="430ee33f:301">Krystal Klear</span>
+    <span class="ch title" data-om-id="430ee33f:302">Project X</span>
+    <span class="ch number" data-om-id="430ee33f:303">14</span>
+    <span class="ch legal" data-om-id="430ee33f:304">ALL CONTENTS CONTAINED HEREIN ARE COPYRIGHT TO OUT OF OFFICE © 2026</span>
+  </section>
+
+  <!-- ============ 15 — MOMENTS · PROVEN PLAYS ============ -->
+  
+
+  <!-- ============ 16 — MOMENTS · THE FUN STUFF ============ -->
+  <section data-label="16 Moments · The Fun Stuff" data-om-id="430ee33f:324" data-deck-slide="15" data-screen-label="16 16 Moments · The Fun Stuff" data-om-validate="no_overflowing_text,no_overlapping_text,slide_sized_text">
+    <div class="frame high" data-om-id="430ee33f:325">
+      <p class="eyebrow" data-om-id="430ee33f:326">16 · Moments</p>
+      <h2 class="head lg" data-om-id="430ee33f:327">The Fun Stuff</h2>
+      <div class="grid g3" style="margin-top:40px;" data-om-id="430ee33f:328">
+        <div class="item" data-om-id="430ee33f:329">
+          <h4 class="two" data-om-id="430ee33f:330">Celebrity Seed → Micro-Creator Wave</h4>
+          <p data-om-id="430ee33f:331">Famous friends post with the sound for a credible kickoff. We follow fast with a ~£1k micro-creator wave so it feels like a trend that caught fire. Surgical around the chorus.</p>
+        </div>
+        <div class="item" data-om-id="430ee33f:332">
+          <h4 class="two" data-om-id="430ee33f:333">"Soundtrack Your Summer"</h4>
+          <p data-om-id="430ee33f:334">The creator format: adopting a familiar transition format: hotel (GRWM) → beach → club. "the assignment is clear. no notes".</p>
+        </div>
+        <div class="item" data-om-id="430ee33f:335">
+          <h4 class="two" data-om-id="430ee33f:336">Project X-tra, The Party</h4>
+          <p data-om-id="430ee33f:337">A small day-to-night party (pool &amp; beach by day, rave by night) tied to summer live dates as a recurring branded series.</p>
+        </div>
+      </div>
+      <div class="callout" data-om-id="430ee33f:341">
+        <span class="k" data-om-id="430ee33f:342">⚑ Flag · The Creator Approach (Diverse vs Bikini-Led)</span>
+        <p data-om-id="430ee33f:343">We recommend a broader, all-genders day-to-night approach as the core. It reaches more of the actual summer audience rather than narrowing the song to one demographic; it is safer and more flexible for brand and platform; it reflects Dec's values and his stated discomfort with the "boys-club" side of the industry; and it ages better. The bikini-led angle stays available as an optional layer – it clearly would resonate to an audience on TikTok.</p>
+      </div>
+    </div>
+    <img class="brand-mark" src="ooo-logo.png" alt="OOO" data-om-id="430ee33f:344">
+    <span class="ch brand" data-om-id="430ee33f:345">Krystal Klear</span>
+    <span class="ch title" data-om-id="430ee33f:346">Project X</span>
+    <span class="ch number" data-om-id="430ee33f:347">16</span>
+    <span class="ch legal" data-om-id="430ee33f:348">ALL CONTENTS CONTAINED HEREIN ARE COPYRIGHT TO OUT OF OFFICE © 2026</span>
+  </section>
+
+  <!-- ============ 17 — MOMENTS · DJ KEEP PLAYING MY SONG ============ -->
+  <section data-label="17 DJ Keep Playing My Song" data-om-id="430ee33f:349" data-deck-slide="16" data-screen-label="17 17 DJ Keep Playing My Song" data-om-validate="no_overflowing_text,no_overlapping_text,slide_sized_text">
+    <div class="frame high narrow" data-om-id="430ee33f:350">
+      <p class="eyebrow" data-om-id="430ee33f:351">17 · Moments</p>
+      <h2 class="head lg" data-om-id="430ee33f:352">DJ Keep Playing My Song</h2>
+      <div class="lede" data-om-id="430ee33f:353">
+        <p data-om-id="430ee33f:354">We seed people into the crowd at Krystal Klear shows, holding their phones up and pointed at KK as he plays. Every screen scrolls the same line – <strong data-om-id="430ee33f:355">DJ KEEP PLAYING MY SONG</strong>.</p>
+        <p data-om-id="430ee33f:356">It turns what is usually a meme – annoying clubbers trying to get the DJ's attention to play a song – into a playful idea. The clubber doesn't even need to be pointing it at KK; they could be dancing anywhere, arm aloft, holding their phone with the message and Project X playing as the embedded sound.</p>
+      </div>
+    </div>
+    <div class="concept-img" data-om-id="430ee33f:358">
+      <video src="kk-barry.mp4" autoplay="" loop="" muted="" playsinline="" data-om-id="e76e94b9:372"></video>
+    </div>
+    <img class="brand-mark" src="ooo-logo.png" alt="OOO" data-om-id="430ee33f:360">
+    <span class="ch brand" data-om-id="430ee33f:361">Krystal Klear</span>
+    <span class="ch title" data-om-id="430ee33f:362">Project X</span>
+    <span class="ch number" data-om-id="430ee33f:363">17</span>
+    <span class="ch legal" data-om-id="430ee33f:364">ALL CONTENTS CONTAINED HEREIN ARE COPYRIGHT TO OUT OF OFFICE © 2026</span>
+  </section>
+
+  <!-- ============ MOMENTS · DJ KEEP PLAYING MY SONG (CONT.) ============ -->
+  <section data-label="18 DJ Keep Playing My Song (cont.)" data-screen-label="18 18 DJ Keep Playing My Song (cont.)" data-om-id="e76e94b9:378" data-om-validate="no_overflowing_text,no_overlapping_text,slide_sized_text" data-deck-slide="17">
+    <div class="frame high" data-om-id="e76e94b9:379">
+      <p class="eyebrow" data-om-id="e76e94b9:380">18 · Moments</p>
+      <h2 class="head" data-om-id="e76e94b9:381">DJ Keep Playing My Song <span style="font-size:0.42em; letter-spacing:0.04em; vertical-align:0.18em; color:var(--ink2);" data-om-id="e76e94b9:382">(cont.)</span></h2>
+      <div class="phone-row" data-om-id="e76e94b9:383">
+        <img src="kk-djphone-1.gif" alt="Phone sign clip 1" data-om-id="e76e94b9:384" />
+        <img src="kk-djphone-2.gif" alt="Phone sign clip 2" data-om-id="e76e94b9:385" />
+        <img src="kk-djphone-3.gif" alt="Phone sign clip 3" data-om-id="e76e94b9:386" />
+      </div>
+    </div>
+    <img class="brand-mark" src="ooo-logo.png" alt="OOO" data-om-id="e76e94b9:387">
+    <span class="ch brand" data-om-id="e76e94b9:388">Krystal Klear</span>
+    <span class="ch title" data-om-id="e76e94b9:389">Project X</span>
+    <span class="ch number" data-om-id="e76e94b9:390">18</span>
+    <span class="ch legal" data-om-id="e76e94b9:391">ALL CONTENTS CONTAINED HEREIN ARE COPYRIGHT TO OUT OF OFFICE © 2026</span>
+  </section>
+
+  <!-- ============ 18 — MOMENTS · PROJECT X-TRA ============ -->
+  <section data-label="19 Project X-tra" data-om-id="430ee33f:365" data-deck-slide="18" data-screen-label="19 19 Project X-tra" data-om-validate="no_overflowing_text,no_overlapping_text,slide_sized_text">
+    <div class="frame high" data-om-id="430ee33f:366">
+      <p class="eyebrow" data-om-id="430ee33f:367">19 · Moments</p>
+      <h2 class="head lg" data-om-id="430ee33f:368">Project X-tra</h2>
+      <div class="lede" data-om-id="430ee33f:369">
+        <p data-om-id="430ee33f:370">An umbrella brand we can throw parties under. Day parties into night parties – bikini to club, dancing <strong data-om-id="430ee33f:371">all night long</strong>.</p>
+        <p class="muted" data-om-id="430ee33f:372">It can also become the title of a remix package later, depending on the life of the song – if we want to keep working it right through the summer.</p>
+      </div>
+      <p class="arc" data-om-id="430ee33f:373">Beach by day → Club by night → All night long</p>
+    </div>
+    <img class="brand-mark" src="ooo-logo.png" alt="OOO" data-om-id="430ee33f:374">
+    <span class="ch brand" data-om-id="430ee33f:375">Krystal Klear</span>
+    <span class="ch title" data-om-id="430ee33f:376">Project X</span>
+    <span class="ch number" data-om-id="430ee33f:377">19</span>
+    <span class="ch legal" data-om-id="430ee33f:378">ALL CONTENTS CONTAINED HEREIN ARE COPYRIGHT TO OUT OF OFFICE © 2026</span>
+  </section>
+
+  <!-- ============ MOMENTS · LIVE VISUALS ============ -->
+  <section data-label="23 Live Visuals" data-screen-label="23 23 Live Visuals">
+    <div class="frame high narrow">
+      <p class="eyebrow">23 · Moments</p>
+      <h2 class="head">Live Visuals</h2>
+      <div class="lede">
+        <p><strong>DJ Keep Playing My Song.</strong></p>
+        <p class="ruled">This will be venue-dependent, but where we can make use of the screens it's an opportunity to visualise the lyrics right back to the dancefloor.</p>
+      </div>
+      <img src="kk-led-banner.png" alt="DJ Keep Playing My Song — LED banner" style="display:block; width:100%; max-width:620px; height:auto; margin-top:40px;" />
+    </div>
+    <div class="concept-img">
+      <img src="kk-live-visuals.gif" alt="Live set visuals at the venue" style="width:100%; height:100%; object-fit:cover; object-position:center; display:block;" />
+    </div>
+    <img class="brand-mark" src="ooo-logo.png" alt="OOO" />
+    <span class="ch brand">Krystal Klear</span>
+    <span class="ch title">Project X</span>
+    <span class="ch number">23</span>
+    <span class="ch legal">ALL CONTENTS CONTAINED HEREIN ARE COPYRIGHT TO OUT OF OFFICE © 2026</span>
+  </section>
+
+  <!-- ============ 18 — CONTENT FORMAT · SPLIT FRAMING ============ -->
+  <section data-label="20 Split Framing" data-screen-label="20 20 Split Framing" data-om-id="e76e94b9:406" data-om-validate="no_overflowing_text,no_overlapping_text,slide_sized_text" data-deck-slide="19">
+    <div class="frame high narrow" data-om-id="e76e94b9:407">
+      <p class="eyebrow" data-om-id="e76e94b9:408">20 · Content Format</p>
+      <h2 class="head lg" data-om-id="e76e94b9:409">Split Framing</h2>
+      <div class="lede" data-om-id="e76e94b9:410">
+        <p data-om-id="e76e94b9:411">Two images or videos, split-framed – one sitting on top of the other.</p>
+        <p class="muted" data-om-id="e76e94b9:412">A native social template for KK's Instagram, accentuated by the colour palette for consistent branding.</p>
+        <p class="muted">The same layout is the basis for TikTok transitional content: GRWM &amp; beach on top, club &amp; dancefloor below. Ref →</p>
+      </div>
+      <p class="arc" data-om-id="e76e94b9:413">Bikini top → Dance bottom</p>
+    </div>
+    <div class="split-frame" data-om-id="e76e94b9:415">
+      <img src="kk-splitframe.gif" alt="Split framing example" />
+    </div>
+    <img class="brand-mark" src="ooo-logo.png" alt="OOO" data-om-id="e76e94b9:422">
+    <span class="ch brand" data-om-id="e76e94b9:423">Krystal Klear</span>
+    <span class="ch title" data-om-id="e76e94b9:424">Project X</span>
+    <span class="ch number" data-om-id="e76e94b9:425">20</span>
+    <span class="ch legal" data-om-id="e76e94b9:426">ALL CONTENTS CONTAINED HEREIN ARE COPYRIGHT TO OUT OF OFFICE © 2026</span>
+  </section>
+
+  <!-- ============ CONTENT FORMAT · SPLIT FRAMING (CONT.) ============ -->
+  <section data-label="21 Content Transition" data-screen-label="21 21 Content Transition">
+    <div class="frame high narrow">
+      <p class="eyebrow">21 · Content Format</p>
+      <h2 class="head">Content Transition</h2>
+      <div class="lede">
+        <p>TikTok creator transition examples.</p>
+      </div>
+      <p class="arc" style="font-family: var(--font-sans); font-size: 21px; line-height: 1.5; letter-spacing: 0; text-transform: none; color: var(--ink); font-weight: 900">Frame 1 →<br>
+Every morning, I wake up, I put on my bikini.<br><br>
+Frame 2 →<br>
+I go swimming, hit the water, every morning.<br><br>
+Frame 3 →<br>
+But every night, I go out, I want to dance.<br>
+Every night, I go out, I go dancing.</p>
+    </div>
+    <div class="split-frame">
+      <img src="kk-splitframe-2.gif" alt="Content transition example" />
+    </div>
+    <img class="brand-mark" src="ooo-logo.png" alt="OOO" />
+    <span class="ch brand">Krystal Klear</span>
+    <span class="ch title">Project X</span>
+    <span class="ch number">21</span>
+    <span class="ch legal">ALL CONTENTS CONTAINED HEREIN ARE COPYRIGHT TO OUT OF OFFICE © 2026</span>
+  </section>
+
+  <!-- ============ 19 — TIMELINE ============ -->
+  <section data-label="21 Timeline" data-om-id="430ee33f:379" data-deck-slide="20" data-screen-label="21 21 Timeline" data-om-validate="no_overflowing_text,no_overlapping_text,slide_sized_text">
+    <div class="frame high" data-om-id="430ee33f:380">
+      <p class="eyebrow" data-om-id="430ee33f:381">21 · Timeline</p>
+      <h2 class="head" data-om-id="430ee33f:382">Roadmap To July 17th</h2>
+      <div class="tl" data-om-id="430ee33f:383">
+        <div class="ph" data-om-id="430ee33f:384">
+          <span class="when" data-om-id="430ee33f:385">Now → mid-June</span>
+          <h4 data-om-id="430ee33f:386">On Ramp</h4>
+          <ul data-om-id="430ee33f:387">
+            <li data-om-id="430ee33f:388">Club &amp; personal DJ servicing live (CANVAS)</li>
+            <li data-om-id="430ee33f:389">Pre-deliver to Shazam TBC</li>
+            <li data-om-id="430ee33f:390">Lock artwork &amp; visualiser</li>
+            <li data-om-id="430ee33f:391">Build the VIP creator shortlist</li>
+            <li data-om-id="430ee33f:392">More carousel &amp; waveform teasers</li>
+          </ul>
+        </div>
+        <div class="ph" data-om-id="430ee33f:393">
+          <span class="when" data-om-id="430ee33f:394">13 – 27 June</span>
+          <h4 data-om-id="430ee33f:395">Teasing</h4>
+          <ul data-om-id="430ee33f:396">
+            <li data-om-id="430ee33f:398">13/06 · Puglia · Slacker w/ Seth Troxler</li>
+            <li data-om-id="430ee33f:399">18/06 · Off Sónar, Barcelona</li>
+            <li class="mark" data-om-id="430ee33f:400">27/06 · Phonox, London · B2B Gerd Janson (marquee)</li>
+          </ul>
+        </div>
+        <div class="ph" data-om-id="430ee33f:401">
+          <span class="when" data-om-id="430ee33f:402">Late June → early July</span>
+          <h4 data-om-id="430ee33f:403">Announce</h4>
+          <ul data-om-id="430ee33f:404">
+            <li data-om-id="430ee33f:405">Open pre-saves; Sofie credited as primary</li>
+            <li data-om-id="430ee33f:406">Lyric-visualiser teasers ramp</li>
+            <li data-om-id="430ee33f:407">Celebrity seeds begin</li>
+            <li data-om-id="430ee33f:408">02–03/07 · Hideout, Pag</li>
+            <li data-om-id="430ee33f:409">04/07 · Rumore, Capri</li>
+            <li>Consider micro-creator campaign start</li>
+          </ul>
+        </div>
+        <div class="ph" data-om-id="430ee33f:410">
+          <span class="when" data-om-id="430ee33f:411">Release week · 17 July</span>
+          <h4 data-om-id="430ee33f:412">Out Now</h4>
+          <ul data-om-id="430ee33f:413">
+            <li class="mark" data-om-id="430ee33f:414">Single live; plays Amnesia (Glitterbox), Ibiza – release-day anchor</li>
+            <li data-om-id="430ee33f:415">Micro-creator wave fires</li>
+            <li data-om-id="430ee33f:416">DSP playlist push</li>
+            <li data-om-id="430ee33f:417">Day-to-night content at peak</li>
+          </ul>
+        </div>
+        <div class="ph" data-om-id="430ee33f:418">
+          <span class="when" data-om-id="430ee33f:419">August Onwards</span>
+          <h4 data-om-id="430ee33f:420">Sustain</h4>
+          <ul data-om-id="430ee33f:421">
+            <li data-om-id="430ee33f:422">Remixes &amp; edits roll out</li>
+            <li data-om-id="430ee33f:423">Keep the creates going; white-label 12"</li>
+            <li data-om-id="430ee33f:424">31/07 · Atollo, Florence</li>
+            <li data-om-id="430ee33f:425">01–02/08 · Defected, Tisno</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+    <img class="brand-mark" src="ooo-logo.png" alt="OOO" data-om-id="430ee33f:426">
+    <span class="ch brand" data-om-id="430ee33f:427">Krystal Klear</span>
+    <span class="ch title" data-om-id="430ee33f:428">Project X</span>
+    <span class="ch number" data-om-id="430ee33f:429">21</span>
+    <span class="ch legal" data-om-id="430ee33f:430">ALL CONTENTS CONTAINED HEREIN ARE COPYRIGHT TO OUT OF OFFICE © 2026</span>
+  </section>
+
+  <!-- ============ 20 — MEASURE & LEARN ============ -->
+  
+
+  <!-- ============ 21 — END ============ -->
+  <section data-label="23 End" data-om-id="430ee33f:458" data-deck-slide="22" data-screen-label="23 23 End" data-om-validate="no_overflowing_text,no_overlapping_text,slide_sized_text" data-deck-last-visible="">
+    <div class="endmark" data-om-id="430ee33f:459">
+      <div class="vignette" data-om-id="430ee33f:460"></div>
+      <span class="end-text" data-om-id="430ee33f:461">End</span>
+    </div>
+    <img class="brand-mark" src="ooo-logo.png" alt="OOO" data-om-id="430ee33f:462">
+    <span class="ch legal" data-om-id="430ee33f:463">ALL CONTENTS CONTAINED HEREIN ARE COPYRIGHT TO OUT OF OFFICE © 2026</span>
+  </section>
+
+</deck-stage>
+
+<script src="deck-stage.js"></script>
+<script src="image-slot.js"></script>
+
+<script>
+/* Self-numbering: page number (.ch.number) and eyebrow leading number
+   follow each slide's actual position, so reordering via the thumbnail
+   rail or inserting slides keeps the sequence correct automatically.
+   Slide names in eyebrows are preserved — only the number changes. */
+(function () {
+  function pad(n) { return String(n).padStart(2, '0'); }
+  function renumber() {
+    var slides = document.querySelectorAll('deck-stage > section');
+    slides.forEach(function (s, i) {
+      var n = pad(i + 1);
+      var num = s.querySelector('.ch.number');
+      if (num && num.textContent.trim() !== n) num.textContent = n;
+      var eb = s.querySelector('.eyebrow');
+      if (eb) {
+        var swapped = eb.textContent.replace(/^\s*\d+\s*·/, n + ' ·');
+        if (swapped !== eb.textContent) eb.textContent = swapped;
+      }
+      var dl = s.getAttribute('data-label');
+      if (dl && /^\d+\s/.test(dl)) {
+        var ndl = dl.replace(/^\d+\s/, n + ' ');
+        if (ndl !== dl) s.setAttribute('data-label', ndl);
+      }
+      var dsl = s.getAttribute('data-screen-label');
+      if (dsl && /^\d+\s+\d+\s/.test(dsl)) {
+        var ndsl = dsl.replace(/^\d+\s+\d+\s/, n + ' ' + n + ' ');
+        if (ndsl !== dsl) s.setAttribute('data-screen-label', ndsl);
+      }
+    });
+  }
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', renumber);
+  } else { renumber(); }
+  var stage = document.querySelector('deck-stage');
+  if (stage) new MutationObserver(renumber).observe(stage, { childList: true });
+})();
+</script>
+
+<script>
+/* Fit the cover artist line to the exact width of the title below it.
+   Font scales uniformly (no distortion); recomputed after fonts load
+   and on resize so it always matches. */
+(function () {
+  function fitArtist() {
+    var a = document.querySelector('.cover .artist-pill');
+    var t = document.querySelector('.cover .title');
+    if (!a || !t) return;
+    a.style.fontSize = '';
+    var aw = a.scrollWidth, tw = t.scrollWidth;
+    if (aw > 0 && tw > 0) {
+      var fs = parseFloat(getComputedStyle(a).fontSize);
+      a.style.fontSize = (fs * tw / aw) + 'px';
+    }
+  }
+  function run() {
+    fitArtist();
+    if (document.fonts && document.fonts.ready) document.fonts.ready.then(fitArtist);
+  }
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', run);
+  } else { run(); }
+  window.addEventListener('resize', fitArtist);
+})();
+</script>
+
+</body></html>
